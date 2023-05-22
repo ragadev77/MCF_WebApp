@@ -1,0 +1,1 @@
+dotnet run --project MCF_FE_MVC.csproj

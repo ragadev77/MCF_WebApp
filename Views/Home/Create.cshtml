@@ -1,0 +1,81 @@
+﻿@model MCFWebAPI.Models.BPKB
+
+@{
+    ViewData["Title"] = "Add New BPKB";
+}
+
+<h4>Add BPKB</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="agreement_number" class="control-label"></label>
+                @Html.TextBoxFor(m => m.agreement_number, new {placeholder = "input agreement number",@class = "form-control"})
+                @*<input asp-for="agreement_number" class="form-control" />*@
+                <span asp-validation-for="agreement_number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bpkb_no" class="control-label"></label>
+                @Html.TextBoxFor(m => m.bpkb_no, new {placeholder = "input No. BPKB",@class = "form-control"})
+                <span asp-validation-for="bpkb_no" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bpkb_date" class="control-label"></label>
+                <input asp-for="bpkb_date" class="form-control" />
+                <span asp-validation-for="bpkb_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="faktur_no" class="control-label"></label>
+                @Html.TextBoxFor(m => m.faktur_no, new {placeholder = "input No. Faktur",@class = "form-control"})
+                <span asp-validation-for="faktur_no" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="faktur_date" class="control-label"></label>
+                <input asp-for="faktur_date" class="form-control" />
+                <span asp-validation-for="faktur_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocationId" class="control-label"></label>
+                @*<input asp-for="location_id" class="form-control" />*@
+                <select asp-for="LocationId" class="form-control" asp-items="ViewBag.Locations"></select>
+                <span asp-validation-for="LocationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="police_no" class="control-label"></label>
+                @Html.TextBoxFor(m => m.police_no, new {placeholder = "input No. Polisi",@class = "form-control"})
+                <span asp-validation-for="police_no" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bpkb_date_in" class="control-label"></label>
+                <input asp-for="bpkb_date_in" class="form-control" />
+                <span asp-validation-for="bpkb_date_in" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@{
+    try
+    {
+        if (ViewBag.msg != null)
+        {
+            <label>@ViewBag.msg</label>
+        }
+    }
+    catch
+    {
+        
+    }
+}
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

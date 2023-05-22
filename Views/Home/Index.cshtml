@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MCFWebAPI.Models.BPKB>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BPKBs</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.agreement_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bpkb_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bpkb_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.faktur_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.faktur_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.police_no)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bpkb_date_in)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.agreement_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bpkb_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bpkb_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.faktur_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.faktur_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.police_no)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bpkb_date_in)
+            </td>
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
